@@ -15,35 +15,46 @@ class HomeDrawer extends StatelessWidget {
         child: ListView(
           children: [
             DrawerHeader(
-                child:
-                Center(child: Text(title.toUpperCase(), style:TextStyle(fontSize: 35,color: Colors.white)))
+                child: Center(
+                    child: Text(TITLE.toUpperCase(),
+                        style: TextStyle(fontSize: 35, color: Colors.white)))),
+            ListTile(
+              leading: Icon(
+                Icons.person,
+                color: Colors.white,
+              ),
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => Profile(),
+                  ),
+                );
+              },
+              title: Text(
+                "Profile",
+                style: TextStyle(fontSize: 24, color: Colors.white),
+              ),
             ),
             ListTile(
-              leading: Icon(Icons.person,color: Colors.white,),
-              onTap: (){Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (context) => Profile(),
-                ),
-              );},
-              title: Text("Profile",style: TextStyle(fontSize: 24,color: Colors.white),),
-
+              leading: Icon(
+                Icons.logout,
+                color: Colors.white,
+              ),
+              onTap: () {
+                signOut();
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => WelcomeScreen(),
+                  ),
+                );
+              },
+              title: Text(
+                "SignOut",
+                style: TextStyle(fontSize: 24, color: Colors.white),
+              ),
             ),
-            ListTile(
-              leading: Icon(Icons.logout,color: Colors.white,),
-              onTap: (){signOut();
-              Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) => WelcomeScreen(),
-                      ),
-                    );
-                },
-              title: Text("SignOut",style: TextStyle(fontSize: 24,color: Colors.white),),
-
-            ),
-
           ],
         ),
-
       ),
     );
   }

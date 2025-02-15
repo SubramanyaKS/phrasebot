@@ -14,10 +14,8 @@ class GradientBackground extends StatelessWidget {
           end: Alignment.topLeft,
           colors: [
             Colors.black,
-            Color(0xFF0000FF),
+            Color(0xFF0000FF), // Electric Blue 0xFF0080FF
             Colors.black,
-
-             // Electric Blue 0xFF0080FF
           ],
         ),
       ),
