@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:phrasebot/components/background.dart';
+import 'package:phrasebot/components/elevation_button.dart';
 import 'package:phrasebot/screens/authcheck_screen.dart';
 import 'package:phrasebot/utils/constant.dart';
 
@@ -14,8 +15,9 @@ class OnboardScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              Spacer(),
               // Chatbot Icon
-              Icon(Icons.chat_bubble_outline, size: 100, color: Colors.white),
+              Icon(Icons.chat_bubble, size: 100, color: Colors.white),
 
               SizedBox(height: 20),
               Text(
@@ -33,39 +35,27 @@ class OnboardScreen extends StatelessWidget {
               Text(
                 SUBTITLE,
                 style: TextStyle(
-                  fontSize: 16,
-                  color: Colors.white70,
+                  fontSize: 18,
+                  color: Colors.grey,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
 
-              SizedBox(height: 40),
-
+              SizedBox(height: 100),
+              Spacer(),
               // Start Chat Button
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  padding: EdgeInsets.symmetric(horizontal: 30, vertical: 12),
-                  backgroundColor: Colors.white, // Button color
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                ),
-                onPressed: () {
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: ElevationButton(onPress:  () {
                   // Navigate to Chat Screen
                   Navigator.of(context).pushReplacement(
                     MaterialPageRoute(
                       builder: (context) => AuthCheck(),
                     ),
                   );
-                },
-                child: Text(
-                  "Start Chatting",
-                  style: TextStyle(
-                    color: Colors.blueAccent,
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
+                }, title: "Start Chatting", foregroundColor: Colors.blueAccent, backgroundColor: Colors.white),
               ),
+              Spacer(),
             ],
           ),
         ),
