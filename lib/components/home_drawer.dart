@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:phrasebot/screens/welcome_screen.dart';
 import 'package:phrasebot/services/auth_service.dart';
 import 'package:phrasebot/utils/constant.dart';
-import 'package:phrasebot/screens/profile.dart';
+import 'package:phrasebot/screens/profile_screen.dart';
 
 class HomeDrawer extends StatelessWidget {
   const HomeDrawer({super.key});
