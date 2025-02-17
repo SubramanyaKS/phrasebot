@@ -38,6 +38,7 @@ dependencies:
   provider: ^6.1.2
   flutter_dotenv: ^5.2.1
   supabase_flutter: ^2.8.3
+  speech_to_text: ^7.0.0
 
 dev_dependencies:
   flutter_test:
