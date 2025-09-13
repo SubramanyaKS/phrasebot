@@ -6,18 +6,6 @@ Future<Map<String, dynamic>?> fetchUserProfile() async {
 
   if (user == null) return null;
 
-  // Fetch user metadata (if stored in Auth)
-  // final userData = user.userMetadata;
-  // userData!['bio']="Hi";
-  // if (userData != null) {
-  //   print(userData);
-  //   return {
-  //     "email": user.email,
-  //     "name": userData["name"] ?? "No Name",
-  //   };
-  // }
-
-  // Alternative: Fetch from 'profiles' table
   final response = await supabase
       .from('profiles')
       .select()

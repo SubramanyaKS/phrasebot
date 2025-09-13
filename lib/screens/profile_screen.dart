@@ -50,8 +50,6 @@ class _ProfileState extends State<Profile> {
   }
   @override
   Widget build(BuildContext context) {
-    // emailController.text=userProfile!['email'];
-    // bioController.text=userProfile['bio'];
     return Scaffold(
       appBar: AppBar(title: Text("Profile")),
       body:  isLoading
@@ -70,7 +68,6 @@ class _ProfileState extends State<Profile> {
                 backgroundImage: NetworkImage("https://d2qp0siotla746.cloudfront.net/img/use-cases/profile-picture/template_0.jpg"),
               ),
             ),
-            // Positioned(child:
             Text(" ${userProfile!['name']}",style: TextStyle(color:Colors.white,fontSize: 40),),
             SizedBox(height: 20,),
             TextIconButton(onPress:  updateState, label: "Edit", icon: Icons.edit),

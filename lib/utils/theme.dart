@@ -18,12 +18,12 @@ class AppTheme {
         )),
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(
       backgroundColor: Colors.white,
-      selectedItemColor: Colors.deepPurple,
+      selectedItemColor: Color(0xFF192BC2),
       unselectedItemColor: Colors.grey,
     ),
     colorScheme: ColorScheme.fromSeed(
-        seedColor: Colors.deepPurple,
-        primary: Colors.deepPurple,
+        seedColor: Color(0xFF192BC2),
+        primary: Color(0xFF192BC2),
         surface: Colors.white,
         brightness: Brightness.light),
     cardTheme: CardTheme(
@@ -34,12 +34,12 @@ class AppTheme {
     ),
   );
   static final darkTheme = ThemeData(
-    primaryColor: Colors.deepPurple,
+    primaryColor: Color(0xFF192BC2),
     scaffoldBackgroundColor: Color(0xFF121212),
     brightness: Brightness.dark,
     textTheme: GoogleFonts.poppinsTextTheme(
         ThemeData(brightness: Brightness.dark).textTheme),
-    cardColor: Colors.deepPurple,
+    cardColor: Color(0xFF192BC2),
     appBarTheme: const AppBarTheme(
       elevation: 2,
       backgroundColor: Color(0xFF101B72),
@@ -51,12 +51,12 @@ class AppTheme {
     ),
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(
       backgroundColor: Color(0xFF1E1E1E),
-      selectedItemColor: Colors.deepPurple,
+      selectedItemColor: Color(0xFF192BC2),
       unselectedItemColor: Colors.grey,
     ),
     colorScheme: ColorScheme.fromSeed(
         seedColor: Colors.black45,
-        primary: Colors.deepPurple,
+        primary: Color(0xFF192BC2),
         surface: const Color(0xFF121212),
         brightness: Brightness.dark),
     cardTheme: CardTheme(

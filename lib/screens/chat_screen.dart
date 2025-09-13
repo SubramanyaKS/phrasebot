@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:phrasebot/components/home_drawer.dart';
 import 'package:phrasebot/utils/constant.dart';
 import 'package:provider/provider.dart';
 import 'package:phrasebot/providers/chat_provider.dart';
@@ -41,7 +40,7 @@ class _ChatState extends State<Chat> {
     final chatProvider = Provider.of<ChatProvider>(context);
 
     return Scaffold(
-      drawer: HomeDrawer(),
+      // drawer: HomeDrawer(),
       appBar: AppBar(
           title: Text(
             TITLE.toLowerCase(),
