@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:phrasebot/screens/settings_screen.dart';
 import 'package:phrasebot/screens/welcome_screen.dart';
 import 'package:phrasebot/services/auth_service.dart';
 import 'package:phrasebot/utils/constant.dart';
@@ -11,7 +12,7 @@ class HomeDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Drawer(
       child: Container(
-        color: Color(0xFF0000FF),
+        color: Colors.lightBlue,
         child: ListView(
           children: [
             DrawerHeader(
@@ -32,6 +33,23 @@ class HomeDrawer extends StatelessWidget {
               },
               title: Text(
                 "Profile",
+                style: TextStyle(fontSize: 24, color: Colors.white),
+              ),
+            ),
+            ListTile(
+              leading: Icon(
+                Icons.person,
+                color: Colors.white,
+              ),
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => SettingsScreen(),
+                  ),
+                );
+              },
+              title: Text(
+                "Settings",
                 style: TextStyle(fontSize: 24, color: Colors.white),
               ),
             ),

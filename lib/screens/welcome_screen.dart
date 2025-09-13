@@ -16,7 +16,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.black45,
+        // backgroundColor: Colors.black45,
         body: GradientBackground(
             child: Padding(
           padding: const EdgeInsets.all(16.0),

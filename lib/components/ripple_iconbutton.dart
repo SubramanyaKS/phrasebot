@@ -9,7 +9,7 @@ class RippleIconbutton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       elevation: 3,
-      color: Color(0xFF192BC2),
+      color: Colors.lightBlue,
       borderRadius: BorderRadius.circular(50),
       child: InkWell(
         onTap: onTap,
