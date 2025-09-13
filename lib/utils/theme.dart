@@ -4,10 +4,11 @@ import 'package:google_fonts/google_fonts.dart';
 class AppTheme {
   static final lightTheme = ThemeData(
     primaryColor: Color(0xFF192BC2),
-    scaffoldBackgroundColor: Colors.grey[200],
+    scaffoldBackgroundColor: Color(0xFFF9F9FF),
     brightness: Brightness.light,
     cardColor: Colors.white,
     textTheme: GoogleFonts.poppinsTextTheme(),
+    iconTheme: IconThemeData(color: Colors.blueAccent),
     appBarTheme: const AppBarTheme(
         elevation: 2,
         backgroundColor: Color(0xFF192BC2),
@@ -65,5 +66,6 @@ class AppTheme {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       margin: const EdgeInsets.all(12),
     ),
+    iconTheme: IconThemeData(color: Colors.lightBlueAccent),
   );
 }

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:phrasebot/components/texticon_button.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
-import '../components/background.dart';
 import '../services/profile_service.dart';
 
 class Profile extends StatefulWidget {
@@ -56,8 +55,7 @@ class _ProfileState extends State<Profile> {
         ? Center(child: CircularProgressIndicator())
         : userProfile == null
     ? Center(child: Text("No user found"))
-        : GradientBackground(
-        child:  Column(
+        : Column(
           spacing: 3,
           children: [
             SizedBox(height: 100,),
@@ -68,7 +66,7 @@ class _ProfileState extends State<Profile> {
                 backgroundImage: NetworkImage("https://d2qp0siotla746.cloudfront.net/img/use-cases/profile-picture/template_0.jpg"),
               ),
             ),
-            Text(" ${userProfile!['name']}",style: TextStyle(color:Colors.white,fontSize: 40),),
+            Text(" ${userProfile!['name']}",style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold),),
             SizedBox(height: 20,),
             TextIconButton(onPress:  updateState, label: "Edit", icon: Icons.edit),
 
@@ -77,13 +75,12 @@ class _ProfileState extends State<Profile> {
               child: ListView(
                 children: [
                   ListTile(
-                    leading: Icon(Icons.email_outlined,color: Colors.white,),
+                    leading: Icon(Icons.email_outlined),
                     title: TextFormField(
                       readOnly: !editing,
                       controller: emailController,
                       style: const TextStyle(
-                        fontSize: 24,
-                        color: Colors.white,
+                        fontSize: 20,
                       ),
                       decoration: const InputDecoration(
                         border:InputBorder.none,
@@ -92,13 +89,12 @@ class _ProfileState extends State<Profile> {
                     ),
                   ),
                   ListTile(
-                    leading: Icon(Icons.person,color: Colors.white,),
+                    leading: Icon(Icons.person),
                     title: TextFormField(
                       readOnly: !editing,
                       controller: bioController,
                       style: const TextStyle(
-                        fontSize: 24,
-                        color: Colors.white,
+                        fontSize: 20,
                       ),
                       decoration: const InputDecoration(
                         border:InputBorder.none,
@@ -107,8 +103,8 @@ class _ProfileState extends State<Profile> {
                     ),
                   ),
                   ListTile(
-                    leading: Icon(Icons.phone,color: Colors.white,),
-                    title: Text("+91 9876543210",style: TextStyle(fontSize:24,color: Colors.white),),
+                    leading: Icon(Icons.phone),
+                    title: Text("+91 9876543210",style: TextStyle(fontSize:20),),
                   ),
                 ],
               ),
@@ -116,7 +112,6 @@ class _ProfileState extends State<Profile> {
             // )
           ],
         ),
-      ),
     );
   }
 }

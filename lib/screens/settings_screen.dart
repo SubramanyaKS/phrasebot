@@ -34,7 +34,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       ListTile(
                         leading: Icon(
                           Icons.sunny,
-                          color: Colors.deepPurple,
+                          color: Color(0xFF192BC2),
                         ),
                         title: Text('Theme'),
                         subtitle: Text('dark mode or light mode'),
@@ -57,7 +57,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     ListTile(
                       leading: Icon(
                         Icons.privacy_tip,
-                        color: Colors.deepPurple,
+                        color: Color(0xFF192BC2),
                       ),
                       title: Text(
                         'Privacy Policy',
@@ -70,7 +70,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     ListTile(
                       leading: Icon(
                         Icons.description,
-                        color: Colors.deepPurple,
+                        color: Color(0xFF192BC2),
                       ),
                       title: Text('Terms of Services'),
                       subtitle: Text('View our terms and conditions'),
@@ -91,7 +91,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       ListTile(
                         leading: Icon(
                           Icons.error_outline,
-                          color: Colors.deepPurple,
+                          color: Color(0xFF192BC2),
                         ),
                         title: Text('App version'),
                         subtitle: Text('v1.0.0'),

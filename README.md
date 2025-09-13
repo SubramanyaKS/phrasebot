@@ -1,6 +1,6 @@
 # 📢 PhraseBot - AI Chat App
 
-PhraseBot is a **Flutter-based AI chatbot** that provides real-time conversations using **Facebook BlenderBot-3B** from Hugging Face API. It also features **user authentication with Supabase** for a secure and personalized experience.
+PhraseBot is a **Flutter-based AI chatbot** that provides real-time conversations using **Google gemma-2-2b-it** from Hugging Face API. It also features **user authentication with Supabase** for a secure and personalized experience.
 
 ---
 
@@ -44,7 +44,7 @@ flutter pub get
    SUPABASE_URL=https://your-project.supabase.co
    SUPABASE_ANON_KEY=your-anon-key
    HUGGINGFACE_API_KEY=your-huggingface-api-key
-   HUGGINGFACE_API_URL=https://api-inference.huggingface.co/yourmodel
+   HUGGINGFACE_API_URL=huggingface-inference
    ```
 
 ### **4️⃣ Run the App**
@@ -69,7 +69,7 @@ await supabase.auth.signOut();
 ---
 
 ## 🤖 AI Chat (Hugging Face API)
-- **Sends user input to BlenderBot API**.
+- **Sends user input to Huggingface API**.
 - **Processes AI-generated responses**.
 - **Handles API failures (503 errors) with retry logic**.
 
