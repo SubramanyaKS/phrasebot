@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:phrasebot/components/home_drawer.dart';
-import 'package:phrasebot/components/ripple_iconbutton.dart';
 import 'package:phrasebot/utils/constant.dart';
 import 'package:provider/provider.dart';
-import 'package:phrasebot/utils/chat_provider.dart';
+import 'package:phrasebot/providers/chat_provider.dart';
 import 'package:speech_to_text/speech_to_text.dart' as stt;
 
 class Chat extends StatefulWidget {
@@ -37,18 +35,15 @@ class _ChatState extends State<Chat> {
       _speech.stop();
     }
   }
-
   @override
   Widget build(BuildContext context) {
     final chatProvider = Provider.of<ChatProvider>(context);
 
     return Scaffold(
-      drawer: HomeDrawer(),
+      // drawer: HomeDrawer(),
       appBar: AppBar(
-          backgroundColor: Color(0xFF192BC2),
           title: Text(
             TITLE.toLowerCase(),
-            style: TextStyle(color: Colors.white),
           )),
       body: Column(
         children: [
@@ -80,51 +75,46 @@ class _ChatState extends State<Chat> {
               },
             ),
           ),
-          Container(
-            // color: Color(0xFF192BC2),
-            child: Padding(
-              padding: EdgeInsets.all(16.0),
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 6.0),
+              margin: const EdgeInsets.all(8.0),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(30),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black12,
+                    blurRadius: 4,
+                  )
+                ],
+              ),
               child: Row(
                 children: [
                   Expanded(
-                    child: Material(
-                      elevation: 5.0,
-                      borderRadius: BorderRadius.circular(30),
-                      child: TextField(
-                        controller: _controller,
-                        style: TextStyle(fontSize: 20.0),
-                        decoration: InputDecoration(
-                          filled: true,
-                          fillColor: Colors.white,
-                          hintStyle: TextStyle(color: Colors.blue),
-                          hintText: "Type a message...",
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                                color: Colors.white, style: BorderStyle.solid),
-                            borderRadius: BorderRadius.circular(30),
-                          ),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(30),
-                            borderSide: BorderSide(
-                                color: Colors.white, style: BorderStyle.solid),
-                          ),
-                        ),
+                    child: TextField(
+                      controller: _controller,
+                      decoration: InputDecoration(
+                        hintText: 'Type a message...',
+                        border: InputBorder.none,
+                        contentPadding: EdgeInsets.symmetric(horizontal: 16),
                       ),
                     ),
                   ),
-                  RippleIconbutton(
-                      onTap: () {
-                        if (_controller.text.isNotEmpty) {
-                          chatProvider.sendMessage(_controller.text);
-                          _controller.clear();
-                        }
-                      },
-                      icon: Icons.send),
-                  RippleIconbutton(
-                      onTap: () {
-                        _listen();
-                      },
-                      icon: isListen ? Icons.mic : Icons.mic_off),
+                  IconButton(
+                    icon: Icon(Icons.send, color: Colors.blueAccent),
+                    onPressed: () {
+                      if (_controller.text.isNotEmpty) {
+                        chatProvider.sendMessage(_controller.text);
+                        _controller.clear();
+                      }
+                    },
+                  ),
+                  IconButton(
+                    icon: Icon(isListen ? Icons.mic : Icons.mic_off, color: Colors.grey),
+                    onPressed: () { _listen();},
+                  ),
                 ],
               ),
             ),

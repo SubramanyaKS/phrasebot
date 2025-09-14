@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:phrasebot/screens/chat_screen.dart';
-import 'package:phrasebot/screens/welcome_screen.dart';
+import 'package:phrasebot/screens/home_screen.dart';
+import 'package:phrasebot/screens/login_screen.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class AuthCheck extends StatefulWidget {
@@ -24,12 +24,12 @@ class _AuthCheckState extends State<AuthCheck> {
     if (user != null) {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => Chat()),
+        MaterialPageRoute(builder: (context) => HomeScreen()),
       );
     } else {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => WelcomeScreen()),
+        MaterialPageRoute(builder: (context) => LoginScreen()),
       );
     }
   }

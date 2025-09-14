@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:phrasebot/providers/chat_provider.dart';
+import 'package:phrasebot/providers/theme_provider.dart';
 import 'package:phrasebot/screens/onboard_screen.dart';
-import 'package:phrasebot/utils/chat_provider.dart';
 import 'package:phrasebot/utils/environment.dart';
+import 'package:phrasebot/utils/theme.dart';
 import 'package:provider/provider.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
@@ -13,8 +15,11 @@ void main() async{
     anonKey: Environment.supabaseAnonKey,
   );
 
-  runApp(ChangeNotifierProvider(
-    create: (context) => ChatProvider(),
+  runApp( MultiProvider(
+      providers: [ChangeNotifierProvider(
+    create: (context) => ChatProvider(),),
+     ChangeNotifierProvider(create: (_) => ThemeProvider()),
+      ],
     child: MyApp(),
   ));
 }
@@ -22,16 +27,15 @@ void main() async{
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    final themeProvider = Provider.of<ThemeProvider>(context);
     return  MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'PhraseBot',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
+      theme: AppTheme.lightTheme,
+      darkTheme: AppTheme.darkTheme,
+      themeMode: themeProvider.themeMode,
       home: OnboardScreen(),
     );
   }

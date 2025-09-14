@@ -5,7 +5,10 @@ final class Environment {
   static String get supabaseAnonKey =>dotenv.env['SUPABASE_ANON']??"";
   static String get huggingfaceKey =>dotenv.env['HUGGINGFACE_API_KEY']??'';
   static String get huggingfaceURI =>dotenv.env['HUGGINGFACE_API_URI']??'';
-
+  static String get huggingfaceURL =>dotenv.env['HUGGINGFACE_API_URL']??'';
+  static String get model => dotenv.env['MODEL']??'';
+  static String get googleGemini => dotenv.env["GOOGLE_GEMINI_API"]??"";
+  static String get googleAPI => dotenv.env["GEMINI_API_KEY"]??"";
   static Future<void> load() async {
     await dotenv.load();
   }
