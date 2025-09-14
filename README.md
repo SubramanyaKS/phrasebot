@@ -5,7 +5,7 @@ PhraseBot is a **Flutter-based AI chatbot** that provides real-time conversation
 ---
 
 ## 🚀 Features
-✅ **AI-Powered Chat** - Uses **Facebook BlenderBot-3B** for intelligent conversations.  
+✅ **AI-Powered Chat** - Uses **Google gemma-2-2b-it** for intelligent conversations.  
 ✅ **Supabase Authentication** - Secure login & signup with email/password.  
 ✅ **Real-time Messaging** - Smooth conversation flow with a chatbot.  
 ✅ **User Profile Management** - Store user data like names in Supabase.  
