@@ -14,7 +14,6 @@ class ChatService {
     const int maxRetries = 3; // Number of retry attempts
     const int baseWaitTime = 2; // Initial wait time in seconds
     while (retryCount < maxRetries) {
-      print(apiUrl);
       try {
         Response response = await _dio.post(
           apiUrl,
@@ -40,8 +39,7 @@ class ChatService {
           return "Error: ${response.statusMessage}";
         }
       } catch (e) {
-        print(e);
-        return "Error: Unable to fetch response. ${e}";
+        return "Error: Unable to fetch response. $e";
       }
     }
     return "Service unavailable. Please try again later.";

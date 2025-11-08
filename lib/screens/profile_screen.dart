@@ -45,7 +45,7 @@ class _ProfileState extends State<Profile> {
       SnackBar(content: Text("Profile updated successfully!")),
     );
 
-    Navigator.pop(context);
+    // Navigator.pop(context);
   }
   @override
   Widget build(BuildContext context) {

@@ -1,6 +1,6 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
-import 'package:phrasebot/screens/chat_screen.dart';
+import 'package:phrasebot/screens/home_screen.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 Future<void> createProfile(String userId, String email,String name) async {
@@ -50,7 +50,7 @@ Future<void> login(String email, String password,BuildContext context) async {
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("✅ User Logged In:")));
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(
-          builder: (context) => Chat(),
+          builder: (context) => HomeScreen(),
         ),
       );
 
