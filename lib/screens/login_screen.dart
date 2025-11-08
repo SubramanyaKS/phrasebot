@@ -90,12 +90,12 @@ class _LoginScreenState extends State<LoginScreen> {
           const SizedBox(height: 40),
           TextButton(
               onPressed: () {
-                debugPrint("Password : ${passwordController.text}");
+                // debugPrint("Password : ${passwordController.text}");
               },
               child: Text("Forgot Password")),
           const SizedBox(height: 30),
           ElevationButton(onPress: () {
-            debugPrint("Email : ${emailController.text}");
+            // debugPrint("Email : ${emailController.text}");
             // debugPrint("Password : ${passwordController.text}");
             login(emailController.text, passwordController.text,context);
 
