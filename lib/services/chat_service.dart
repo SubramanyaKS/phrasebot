@@ -8,28 +8,32 @@ class ChatService {
   final String apiUrl = Environment.huggingfaceURL;
   final String model = Environment.model;
 
+  final String googleGemini = Environment.googleGemini;
+  final String googleAPI = Environment.googleAPI;
 
   Future<String> sendMessage(String message) async {
     int retryCount = 0;
-    const int maxRetries = 3; // Number of retry attempts
-    const int baseWaitTime = 2; // Initial wait time in seconds
+    const int maxRetries = 3;
+    const int baseWaitTime = 2;
     while (retryCount < maxRetries) {
       try {
         Response response = await _dio.post(
-          apiUrl,
-          options: Options(headers: {"Authorization": "Bearer $apiKey"}),
-          data: {"messages": [
-            {
-              "role": "user",
-              "content": message
-            }
-          ],
-            "model": model,
-            "stream": false},
+          googleGemini,
+          options: Options(headers: {"X-goog-api-key": googleAPI}),
+          data: {
+            "contents": [
+              {
+                "parts": [
+                  {"text": "Answer in max 1 lines only:\n$message"}
+                ]
+              }
+            ]
+          },
         );
 
         if (response.statusCode == 200) {
-          return response.data["choices"][0]["message"]["content"];
+          return response.data["candidates"]?[0]?["content"]?["parts"]?[0]
+              ?["text"];
         } else if (response.statusCode == 503) {
           retryCount++;
           int waitTime = baseWaitTime * retryCount; // Exponential backoff

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:phrasebot/utils/constant.dart';
 import 'package:provider/provider.dart';
@@ -19,8 +21,8 @@ class _ChatState extends State<Chat> {
   void _listen() async {
     if (!isListen) {
       bool available = await _speech.initialize(
-        onStatus: (val) => print('onStatus: $val'),
-        onError: (val) => print('onError: $val'),
+        onStatus: (val) => log('onStatus: $val'),
+        onError: (val) => log('onError: $val'),
       );
       if (available) {
         setState(() => isListen = true);

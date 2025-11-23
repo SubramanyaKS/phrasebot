@@ -26,6 +26,7 @@ class _ProfileState extends State<Profile> {
 
   Future<void> loadProfile() async {
     final profile = await fetchUserProfile();
+    // print(profile);
     setState(() {
       userProfile = profile;
       isLoading = false;
