@@ -66,7 +66,7 @@ class _LoginScreenState extends State<LoginScreen> {
           const SizedBox(height: 60),
           Text(
             "Email address",
-            style: const TextStyle(color: Colors.black),
+            // style: const TextStyle(color: Colors.black),
           ),
           TextField(
             controller: emailController,
@@ -77,7 +77,7 @@ class _LoginScreenState extends State<LoginScreen> {
           const SizedBox(height: 40),
           Text(
             "Password",
-            style: const TextStyle(color: Colors.black),
+            // style: const TextStyle(color: Colors.black),
           ),
           TextField(
             controller: passwordController,
