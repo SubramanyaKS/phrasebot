@@ -1,6 +1,6 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
-import 'package:phrasebot/screens/chat_screen.dart';
+import 'package:phrasebot/screens/home_screen.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 Future<void> createProfile(String userId, String email,String name) async {
@@ -31,7 +31,7 @@ Future<void> signUp(String email, String password, String name) async {
       log("❌ Error: Unknown issue occurred during signup.");
     }
   } catch (e) {
-    log("❌ Exception: $e"); // Prints any errors
+    log("❌ Exception: $e"); // logs any errors
   }
 }
 
@@ -50,7 +50,7 @@ Future<void> login(String email, String password,BuildContext context) async {
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("✅ User Logged In:")));
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(
-          builder: (context) => Chat(),
+          builder: (context) => HomeScreen(),
         ),
       );
 
@@ -59,7 +59,7 @@ Future<void> login(String email, String password,BuildContext context) async {
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("❌ Error: Unknown issue occurred during login.")));
     }
   } catch (e) {
-    log("❌ Exception: $e"); // Prints any errors
+    log("❌ Exception: $e"); // logs any errors
   }
 }
 Future<void> signOut() async {
@@ -67,9 +67,9 @@ Future<void> signOut() async {
 
   try {
     await supabase.auth.signOut();
-    print("✅ User Signed Out Successfully");
+    log("✅ User Signed Out Successfully");
   } catch (e) {
-    print("❌ Error Signing Out: $e");
+    log("❌ Error Signing Out: $e");
   }
 }
 Future<void> resetPassword(String email) async {
@@ -77,9 +77,9 @@ Future<void> resetPassword(String email) async {
 
   try {
     await supabase.auth.resetPasswordForEmail(email);
-    print("📩 Password Reset Email Sent to $email");
+    log("📩 Password Reset Email Sent to $email");
   } catch (e) {
-    print("❌ Error Sending Reset Email: $e");
+    log("❌ Error Sending Reset Email: $e");
   }
 }
 bool isUserLoggedIn() {
@@ -92,8 +92,8 @@ Future<String> getUserProfile() async {
 
   final user = supabase.auth.currentUser;
   if (user != null) {
-    print("User Email: ${user.email}");
-    print("User Name: ${user.userMetadata?['name'] ?? 'No name set'}");
+    log("User Email: ${user.email}");
+    log("User Name: ${user.userMetadata?['name'] ?? 'No name set'}");
   return user.userMetadata?['name'] ?? 'No name set';
 
   }

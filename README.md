@@ -1,22 +1,24 @@
 # 📢 PhraseBot - AI Chat App
 
-PhraseBot is a **Flutter-based AI chatbot** that provides real-time conversations using **Google gemma-2-2b-it** from Hugging Face API. It also features **user authentication with Supabase** for a secure and personalized experience.
+PhraseBot is a **Flutter-based AI chatbot** that provides real-time conversations using **Google gemini API**. It also features **user authentication with Supabase** for a secure and personalized experience.
 
 ---
 
 ## 🚀 Features
-✅ **AI-Powered Chat** - Uses **Google gemma-2-2b-it** for intelligent conversations.  
-✅ **Supabase Authentication** - Secure login & signup with email/password.  
-✅ **Real-time Messaging** - Smooth conversation flow with a chatbot.  
-✅ **User Profile Management** - Store user data like names in Supabase.  
-✅ **Flutter-based UI** - Cross-platform support for Android & iOS.  
-✅ **Error Handling** - Manages API failures with retry mechanisms.  
+
+- **AI-Powered Chat** - Uses Google Gemini API for intelligent conversations.  
+- **Supabase Authentication** - Secure login & signup with email/password.  
+-  **Real-time Messaging** - Smooth conversation flow with a chatbot.  
+-  **User Profile Management** - Store user data like names in Supabase.  
+-  **Flutter-based UI** - Cross-platform support for Android & iOS.  
+-  **Error Handling** - Manages API failures with retry mechanisms.  
+-  **Stores Chat History** - Stores the chat history in Supabase.  
 
 ---
 
 ## 🛠️ Tech Stack
 - **Flutter** (Frontend Framework)
-- **Hugging Face API** (AI Chatbot Backend - BlenderBot 3B)
+- **Gemini API** (AI Chatbot Backend - Google Gemini)
 - **Supabase** (Authentication & User Management)
 - **Dio** (HTTP requests for API integration)
 - **Provider** (State Management)
@@ -43,8 +45,8 @@ flutter pub get
    ```env
    SUPABASE_URL=https://your-project.supabase.co
    SUPABASE_ANON_KEY=your-anon-key
-   HUGGINGFACE_API_KEY=your-huggingface-api-key
-   HUGGINGFACE_API_URL=huggingface-inference
+   GOOGLE_GEMINI_API=your-gemini-api-uri
+   GEMINI_API_KEY=your-google-gemini-api-key
    ```
 
 ### **4️⃣ Run the App**
@@ -68,19 +70,28 @@ await supabase.auth.signOut();
 
 ---
 
-## 🤖 AI Chat (Hugging Face API)
-- **Sends user input to Huggingface API**.
+## 🤖 AI Chat (Google gemini API)
+- **Sends user input to Gemini API**.
 - **Processes AI-generated responses**.
 - **Handles API failures (503 errors) with retry logic**.
 
 ```dart
 Future<String> sendMessage(String message) async {
   final response = await dio.post(
-    dotenv.env['HUGGINGFACE_API_URL']!,
-    options: Options(headers: {"Authorization": "Bearer ${dotenv.env['HUGGINGFACE_API_KEY']}"}),
-    data: {"inputs": message},
+    dotenv.env['GOOGLE_GEMINI_API']!,
+    options: Options(headers: {"X-goog-api-key": googleAPI}),
+
+     data: {
+            "contents": [
+              {
+                "parts": [
+                  {"text": "your answer $message"}
+                ]
+              }
+            ]
+    },
   );
-  return response.data[0]["generated_text"];
+  return response.data["candidates"]?[0]?["content"]?["parts"]?[0]?["text"];
 }
 ```
 
@@ -92,8 +103,8 @@ Future<String> sendMessage(String message) async {
 ---
 
 ## 🛠️ Future Enhancements
-✅ Add **Dark Mode Support**  
-✅ Enable **Voice Input** for chatting  
+✅ Add **Multi chat session Support**  
+✅ Improve **User Interface for chat Screen**
 ✅ Improve **AI response speed**
 
 ---

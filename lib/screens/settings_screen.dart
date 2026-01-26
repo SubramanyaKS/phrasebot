@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:phrasebot/providers/theme_provider.dart';
+import 'package:phrasebot/screens/login_screen.dart';
+import 'package:phrasebot/services/auth_service.dart';
 import 'package:provider/provider.dart';
 
 class SettingsScreen extends StatefulWidget {
@@ -19,7 +21,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       ),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(24.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -85,7 +87,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
               SizedBox(
-                  height: 150,
+                  height: 80,
                   child: ListView(
                     children: [
                       ListTile(
@@ -99,7 +101,44 @@ class _SettingsScreenState extends State<SettingsScreen> {
                         onTap: () {},
                       ),
                     ],
-                  ))
+                  )),
+                  Text(
+                'Account',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              ),
+                  SizedBox(
+                  height: 150,
+                  child: ListView(
+                    children: [
+                      ListTile(
+                        leading: Icon(
+                          Icons.logout,
+                          color: Color(0xFF192BC2),
+                        ),
+                        title: Text('Logout'),
+                        trailing: Icon(Icons.arrow_forward),
+                        onTap: () {
+                          signOut();
+                          Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(
+                        builder: (context) => LoginScreen(),
+                      ),
+                      );
+                        },
+                      ),
+                      ListTile(
+                        leading: Icon(
+                          Icons.clear,
+                          color: Color(0xFF192BC2),
+                        ),
+                        title: Text('Clear Chat History'),
+                        trailing: Icon(Icons.arrow_forward),
+                        onTap: () {
+                        },
+                      ),
+                    ],
+                  )
+                )
             ],
           ),
         ),

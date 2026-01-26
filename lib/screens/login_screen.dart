@@ -20,7 +20,6 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   void dispose() {
-    // TODO: implement dispose
     super.dispose();
     emailController.dispose();
     passwordController.dispose();
@@ -67,7 +66,7 @@ class _LoginScreenState extends State<LoginScreen> {
           const SizedBox(height: 60),
           Text(
             "Email address",
-            style: const TextStyle(color: Colors.black),
+            // style: const TextStyle(color: Colors.black),
           ),
           TextField(
             controller: emailController,
@@ -78,7 +77,7 @@ class _LoginScreenState extends State<LoginScreen> {
           const SizedBox(height: 40),
           Text(
             "Password",
-            style: const TextStyle(color: Colors.black),
+            // style: const TextStyle(color: Colors.black),
           ),
           TextField(
             controller: passwordController,
@@ -90,12 +89,12 @@ class _LoginScreenState extends State<LoginScreen> {
           const SizedBox(height: 40),
           TextButton(
               onPressed: () {
-                debugPrint("Password : ${passwordController.text}");
+                // debugPrint("Password : ${passwordController.text}");
               },
               child: Text("Forgot Password")),
           const SizedBox(height: 30),
           ElevationButton(onPress: () {
-            debugPrint("Email : ${emailController.text}");
+            // debugPrint("Email : ${emailController.text}");
             // debugPrint("Password : ${passwordController.text}");
             login(emailController.text, passwordController.text,context);
 

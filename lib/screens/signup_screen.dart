@@ -22,7 +22,6 @@ class _SignupScreenState extends State<SignupScreen> {
 
   @override
   void dispose() {
-    // TODO: implement dispose
     super.dispose();
     emailController.dispose();
     nameController.dispose();
@@ -69,7 +68,7 @@ class _SignupScreenState extends State<SignupScreen> {
           const SizedBox(height: 60),
           Text(
             "Name",
-            style: const TextStyle(color: Colors.black),
+            // style: const TextStyle(color: Colors.black),
           ),
           TextField(
             controller: nameController,
@@ -80,7 +79,7 @@ class _SignupScreenState extends State<SignupScreen> {
           const SizedBox(height: 40),
           Text(
             "Email address",
-            style: const TextStyle(color: Colors.black),
+            // style: const TextStyle(color: Colors.black),
           ),
           TextField(
             controller: emailController,
@@ -91,7 +90,7 @@ class _SignupScreenState extends State<SignupScreen> {
           const SizedBox(height: 40),
           Text(
             "Password",
-            style: const TextStyle(color: Colors.black),
+            // style: const TextStyle(color: Colors.black),
           ),
           TextField(
             controller: passwordController,
